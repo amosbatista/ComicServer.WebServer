@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="mystyle.css" />
+		<script src="pageMapping.js"></script>
+
+	</head>
+	<body onLoad="initPage();" oncontextmenu="return false;">
+		<form method="GET" action="http://localhost:3472/CarregarEpisodio.aspx" id="form_submit"> 
+			<input type="hidden" id="episodeNumber" name="episodeNumber" value="1" />
+			<input type="hidden" id="idiom" name="idiom" value="en" />
+		</form>
+		<aside class="leftBar">
+			<img class="imgSideBar" src="img\logo.jpg" alt="Ghostships">
+			<img class="imgSideBar" src="img\logo_cap1.jpg" alt="Episode 1">
+		</aside>
+
+
+		<aside class="rightBar">
+			<img class="imgSideBar" id="logo_idiom" src="img\idiom_pt.jpg" alt="Ghostships"> <!-- O idioma configurado aqui é inverso ao configurado no início;-->
+		</aside>
+		
+		<main>
+			<svg id="svgRegion" version="1.1"
+				 xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink" viewbox="0 0 800 600">
+				<image id="myImage" xlink:href="teste_horizontal.JPG" x="0" y="0" height="100%" width="100%" transform="translate(0, 0) scale(1)" />		
+			</svg>	
+		</main>
+
+	</body>
+</html>

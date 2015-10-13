@@ -1,0 +1,14 @@
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <title>Camada 1</title>
+  <path opacity="0.25" id="svg_1" d="m314.60001,58l-33.60001,49l63,0l-29.39999,-49z" stroke-width="5" stroke="#000000" fill="#FF0000"/>
+  <path transform="rotate(-90 250.00000000000003,147.00000000000003) " id="svg_2" opacity="0.25" d="m252.10001,122.5l-33.60001,49l63,0l-29.39999,-49z" stroke-width="5" stroke="#000000" fill="#FF0000"/>
+  <path transform="rotate(90 375.00000000000006,144.00000000000003) " id="svg_3" opacity="0.25" d="m377.10001,119.5l-33.60001,49l63,0l-29.39999,-49z" stroke-width="5" stroke="#000000" fill="#FF0000"/>
+  <path transform="rotate(180 312,211.00000000000003) " id="svg_4" opacity="0.25" d="m314.10001,186.5l-33.60001,49l63,0l-29.39999,-49z" stroke-width="5" stroke="#000000" fill="#FF0000"/>
+  <text font-style="normal" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="84" id="svg_5" y="174" x="531" opacity="0.5" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#000000" fill="#000000">+</text>
+  <text id="svg_6" font-style="normal" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="84" y="209.5" x="532" opacity="0.5" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#000000" fill="#000000">-</text>
+  <rect id="svg_7" height="54" width="69" y="118" x="497" opacity="0.5" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <rect id="svg_8" height="54" width="69" y="174" x="498.5" opacity="0.5" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#000000" fill="#007fff"/>
+ </g>
+</svg>

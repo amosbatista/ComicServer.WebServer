@@ -1,0 +1,52 @@
+/*Elements*/
+header, section, footer, aside, nav, main, img{
+	/* Todo: Remove these line after production*/
+	border: solid 2px;
+}
+header, section, footer, nav{
+	display: block; 
+	border-color: black;
+}
+body{
+	margin: 0;
+    padding: 0%;
+	padding-left: 1%;
+	padding-right: 1%;
+	background-color: #ccddee;
+	font-size: 100%;
+}
+aside{
+	/* Todo: Remove these line after production*/
+	height: 500px;
+	width: 10%;
+	position: relative;
+}
+main{
+	/* Todo: Remove these line after production*/
+	height: 50%;
+	width: 70%;
+	border-color: red;
+	margin:auto;
+	position: relative;	
+	display: block; 
+}
+svg {
+    top: 0;
+    left: 0;
+}
+
+/*Classes*/
+aside.leftBar{
+	float:left;
+}
+aside.rightBar{
+	float:right;
+}
+img.imgSideBar{
+	margin: 0;
+    padding: 0;
+	width: 100%;
+	border-color: blue;
+}	
+
+/*Specific objects*/

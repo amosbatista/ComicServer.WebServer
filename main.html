@@ -8,7 +8,17 @@
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" type="text/css" href="mystyle.css" />
 		<script src="pageMapping.js"></script>
-
+		
+		<!-- Script para permitir o acesso botão Like-->
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=268467563167452";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		
+		
 	</head>
 	<body onLoad="initPage();" oncontextmenu="return false;">
 		<form method="GET" action="http://localhost:3472/CarregarEpisodio.aspx" id="form_submit"> 
@@ -23,6 +33,7 @@
 
 		<aside class="rightBar">
 			<img class="imgSideBar" id="logo_idiom" src="img\idiom_pt.jpg" alt="Ghostships"> <!-- O idioma configurado aqui é inverso ao configurado no início;-->
+			<div class="fb-like" data-href="http://theghostships.com/" data-width="150" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
 		</aside>
 		
 		<main>

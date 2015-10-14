@@ -1,18 +1,17 @@
 /*Elements*/
-header, section, footer, aside, nav, main, img{
-	/* Todo: Remove these line after production*/
+/* header, section, footer, aside, nav, main, img{ */
+main, img{
 	border: solid 2px;
 }
 header, section, footer, nav{
 	display: block; 
-	border-color: black;
 }
 body{
 	margin: 0;
-    padding: 0%;
+    padding: 1%;
 	padding-left: 1%;
 	padding-right: 1%;
-	background-color: #ccddee;
+	background-color: #badeff;
 	font-size: 100%;
 }
 aside{
@@ -25,7 +24,7 @@ main{
 	/* Todo: Remove these line after production*/
 	height: 50%;
 	width: 70%;
-	border-color: red;
+	border-color: black;
 	margin:auto;
 	position: relative;	
 	display: block; 
@@ -46,7 +45,11 @@ img.imgSideBar{
 	margin: 0;
     padding: 0;
 	width: 100%;
-	border-color: blue;
+	
 }	
+div.fb-like{
+	padding-left: 50%;
+	padding-top: 15%;
+}
 
 /*Specific objects*/

@@ -289,14 +289,19 @@ function roundValueToDigits(value){
 
 // Function to change the idiom of the page, and also, of the image
 function ChangeIdiom(){
-	if(currentIdiom == "en")
+	if(currentIdiom == "en"){
 		currentIdiom = "pt";
-	else
+		// Changing the logo
+		DOMLogoIdiom.setAttribute("src","img\\idiom_en.jpg");
+	}
+	else{
 		currentIdiom = "en";
+		// Changing the logo
+		DOMLogoIdiom.setAttribute("src","img\\idiom_pt.jpg");
+	}
 		
 	// Loading the episode again, in the same page
 	LoadEpisode(episodeNumber);
 	
-	// Changing the logo
-	DOMLogoIdiom.setAttribute("src","img\idiom_" + currentIdiom + ".jpg");
+	
 }

@@ -25,7 +25,20 @@ namespace AmosBatista.ComicServer.WebServer
 
                 Response.Clear();
                 Response.ContentType = "application/json; charset=utf-8";
-                Response.Write(NovoEpisode.EpisodeContent.ToJSONString());
+                // Caso retorne nulo, por causa de algum problemana pesquisa, retornar um JSON com um mapeamento apenas, com uma imagem de erro.
+                if (NovoEpisode == null)
+                {
+                    string errorContent_PT = "{'prologue': '','pages': [{'path': 'img\\\\img_warning_pt.jpg','maps': [{'x': 0,'y': 0,'scale': 1,'transitionType': 'normal'}]}]}";
+                    string errorContent_EN = "{'prologue': '','pages': [{'path': 'img\\\\img_warning_en.jpg','maps': [{'x': 0,'y': 0,'scale': 1,'transitionType': 'normal'}]}]}";
+                    if (Request["idiom"] == "pt")
+                        Response.Write(errorContent_PT.Replace("'","\""));
+                    else
+                        Response.Write(errorContent_EN.Replace("'","\""));
+
+                }
+                else
+                    Response.Write(NovoEpisode.EpisodeContent.ToJSONString());
+
                 Response.End();
             }
             else

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO_8859-9:1989" />
+		<link rel="stylesheet" type="text/css" href="mystyle.css" />
+		<link href='https://fonts.googleapis.com/css?family=Vollkorn|PT+Serif' rel='stylesheet' type='text/css'>
+		<script src="pageMapping.js"></script>
+		
+		<!-- Script para permitir o acesso botão Like-->
+		<script>		    (function (d, s, id) {
+		        var js, fjs = d.getElementsByTagName(s)[0];
+		        if (d.getElementById(id)) return;
+		        js = d.createElement(s); js.id = id;
+		        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=268467563167452";
+		        fjs.parentNode.insertBefore(js, fjs);
+		    } (document, 'script', 'facebook-jssdk'));</script>
+
+        <!-- Script Google Analytics-->	
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-41671187-3', 'auto');
+            ga('send', 'pageview');
+        </script>
+		
+	</head>
+	<body onLoad="initPage();" oncontextmenu="return false;">
+		<input type="hidden" id="episodeNumber" name="episodeNumber" value="1" />
+		<input type="hidden" id="idiom" name="idiom" value="en" />
+		
+		<nav class="leftBar">
+			<a href="">
+				<img class="imgSideBar" src="img\logo.jpg" alt="Ghostships">
+			</a>
+			<div class="fb-like" data-href="https://www.facebook.com/Ghostships-1183663534992618" data-width="150" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
+		</nav>
+		
+		<aside class="rightBar">
+			<p class="labels" id="lblIdiom">Ler em Português</p>
+			<img class="imgSideBar" id="logo_idiom" src="img\idiom_pt.jpg" alt="Ghostships" /> <!-- O idioma configurado aqui é inverso ao configurado no início;-->
+			<p class="labels" id="lblEpisode">Select an episode</p>
+			<img class="imgSideBar" src="img\logo_cap1.jpg" alt="Episode 1" />
+
+            <!-- Script google Ad-->
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Padrão direito, canto -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7726753895365103"
+                 data-ad-slot="8628129476"
+                 data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+		</aside>
+
+		<main>
+			<svg id="svgRegion" version="1.1"
+				 xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink" viewbox="0 0 800 600">
+				<rect opacity="0.0" stroke-opacity="0" id="background_Load_Info" height="110%" width="110%" y="0" x="0" stroke-linecap="null" stroke-linejoin="null" stroke-width="5" stroke="#fffcfc" fill="#776565"/>
+				<path id="arrow_moveNextMap" fill-opacity="0" transform="translate(0, 75) rotate(90 89.16999053955074,437.90002441406256) " stroke-opacity="0.25" d="m70.88499,453.90002l18.28503,-32l18.28497,32l-36.57001,0l0,0z" stroke-width="5" stroke="#000000" fill="#ff0000"/>
+				<path id="arrow_movePrevMap" fill-opacity="0" transform="translate(0, 75) rotate(-90 44.000000000000064,437.50000000000006) " stroke-opacity="0.25" d="m25.715,453.5l18.28503,-32l18.28497,32l-36.57,0l0,0z" stroke-width="5" stroke="#000000" fill="#ff0000"/>
+				<image id="myImage" xlink:href="" x="0" y="0" height="100%" width="100%" transform="translate(0, 0) scale(1)" />		
+			</svg>				
+		</main>
+		
+		<section>
+			<p class="tutorial" id="lblInstructions_Next">Move to next visualization: click on the image, press Right in the keyboard or click on the right arrow, located in the left down corner of the image.</p>
+			<p class="tutorial" id="lblInstructions_Prev">Move to previous visualization: right-click on the image, press Left in the keyboard or click on the left arrow, located in the left down corner of the image.</p>
+			<p class="pageNavigation">
+				<a href="javascript:void(0);" id="link_FirstPage" onClick="MoveToFirstPage();">First</a>
+				<a href="javascript:void(0);" id="link_PrevPage" onClick="MoveToPrevPage();">Previous</a>
+				<a href="" id="link_openPage" target="_blank">FullSize</a>
+				<a href="javascript:void(0);" id="link_NextPage" onClick="MoveToNextPage();">Next</a>
+				<a href="javascript:void(0);" id="link_LastPage" onClick="MoveToLastPage();">Last</a>
+			</p>
+			
+		</section>
+
+	</body>
+</html>

@@ -59,13 +59,48 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="CarregarEpisodio.aspx" />
+    <Content Include="createMapping.css" />
+    <Content Include="createMapping.html" />
+    <Content Include="createMapping.js" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="img\episodes\1\en\img0.jpg" />
+    <Content Include="img\episodes\1\en\img1.jpg" />
+    <Content Include="img\episodes\1\en\img2.jpg" />
+    <Content Include="img\episodes\1\en\img3.jpg" />
+    <Content Include="img\episodes\1\en\img4.jpg" />
+    <Content Include="img\episodes\1\en\img5.jpg" />
+    <Content Include="img\episodes\1\en\img6.jpg" />
+    <Content Include="img\episodes\1\en\img7.jpg" />
+    <Content Include="img\episodes\1\en\img8.jpg" />
+    <Content Include="img\episodes\1\en\img9.jpg" />
+    <Content Include="img\episodes\1\pt\img0.jpg" />
+    <Content Include="img\episodes\1\pt\img1.jpg" />
+    <Content Include="img\episodes\1\pt\img2.jpg" />
+    <Content Include="img\episodes\1\pt\img3.jpg" />
+    <Content Include="img\episodes\1\pt\img4.jpg" />
+    <Content Include="img\episodes\1\pt\img5.jpg" />
+    <Content Include="img\episodes\1\pt\img6.jpg" />
+    <Content Include="img\episodes\1\pt\img7.jpg" />
+    <Content Include="img\episodes\1\pt\img8.jpg" />
+    <Content Include="img\episodes\1\pt\img9.jpg" />
+    <Content Include="img\idiom_en.jpg" />
+    <Content Include="img\idiom_pt.jpg" />
+    <Content Include="img\logo.jpg" />
+    <Content Include="img\logo_cap1.jpg" />
+    <Content Include="img\test.png" />
+    <Content Include="img\test_small.bmp" />
+    <Content Include="img\test_small.jpg" />
+    <Content Include="index.html" />
+    <Content Include="mystyle.css" />
+    <Content Include="pageMapping.js" />
     <Content Include="SalvarEpisodio.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -144,11 +179,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Styles\" />
+    <Folder Include="NewFolder1\" />
+    <Folder Include="NewFolder2\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\episodes\1\en\Thumbs.db" />
+    <None Include="img\episodes\1\pt\Thumbs.db" />
+    <None Include="img\test_page1.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

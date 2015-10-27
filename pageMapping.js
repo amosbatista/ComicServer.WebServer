@@ -131,13 +131,13 @@ function ChangeMapByClick(evt){
 				SetImageViewByMap(currentEpisode.pages[currentPage].maps[currentMapNumber]);
 			}
 			else{
-				// If in the limit of the pages, load the next episode
+			    // If in the limit of the pages, load the next episode
 				episodeNumber++;
 				LoadEpisode(episodeNumber);
 
 				// Watch and return the episode minus 1, when it detect error
                 if (ReturnIfImageError() == true)
-                    episodeNumber--;    
+                    episodeNumber = 0;    
 			}
 		}
 		
@@ -160,12 +160,12 @@ function ChangeMapByClick(evt){
 			}
 			else{
 				// If in the start of the pages, load the last episode
-				episodeNumber--;
+			    episodeNumber--;
 				LoadEpisode(episodeNumber);
 
 				// Watch and return the episode plus 1, when it detect error
 				if (ReturnIfImageError() == true)
-				    episodeNumber++;   
+				    episodeNumber = 0;   
 			}
 		}
 		
@@ -225,25 +225,27 @@ function GetAction(evt){
 function LoadEpisode(episodeNumber){
 	
 	// Requesting JSON
-	jSonRequisition.onreadystatechange = function(){
-	
-		if(jSonRequisition.readyState == 4 && jSonRequisition.status == 200){ // readyState == 4: Request finished and function ready - jSonRequisition.status == 200: OK
-			
-			// Loading JSOn to object
-			currentEpisode = JSON.parse(jSonRequisition.responseText); 
-			
-			// Loading the first page of this episode
-			LoadPageToSVG(currentEpisode.pages[currentPage].path);
-	
-			//Setting first map
-			SetImageViewByMap(currentEpisode.pages[currentPage].maps[currentMapNumber]);
-			
-			// Finishing the transition and return the background to finish
-			startFadeOut = 1;
-		}
-	}
-	//var urlComicsServer = "http://theghostships.com/CarregarEpisodio.aspx?episodeNumber=" + episodeNumber + "&idiom=" + currentIdiom;
-	var urlComicsServer = "http://localhost:3472/CarregarEpisodio.aspx?episodeNumber=" + episodeNumber + "&idiom=" + currentIdiom;
+    jSonRequisition.onreadystatechange = function () {
+
+        if (jSonRequisition.readyState == 4 && jSonRequisition.status == 200) { // readyState == 4: Request finished and function ready - jSonRequisition.status == 200: OK
+
+            // Loading JSOn to object
+            currentEpisode = JSON.parse(jSonRequisition.responseText);
+
+            // Loading the first page of this episode
+            currentPage = 0;
+            LoadPageToSVG(currentEpisode.pages[currentPage].path);
+
+            //Setting first map
+            currentMapNumber = 0;
+            SetImageViewByMap(currentEpisode.pages[currentPage].maps[currentMapNumber]);
+
+            // Finishing the transition and return the background to finish
+            startFadeOut = 1;
+        }
+    }
+	var urlComicsServer = "http://theghostships.com/CarregarEpisodio.aspx?episodeNumber=" + episodeNumber + "&idiom=" + currentIdiom;
+	//var urlComicsServer = "http://localhost:3472/CarregarEpisodio.aspx?episodeNumber=" + episodeNumber + "&idiom=" + currentIdiom;
 	jSonRequisition.open("GET", urlComicsServer, true);
 	jSonRequisition.send();
 	

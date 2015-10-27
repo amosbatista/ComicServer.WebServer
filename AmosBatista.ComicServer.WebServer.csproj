@@ -86,6 +86,12 @@
     <Content Include="img\episodes\1\pt\img9.jpg" />
     <Content Include="img\idiom_en.jpg" />
     <Content Include="img\idiom_pt.jpg" />
+    <Content Include="img\img_warning_en.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\img_warning_pt.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="img\logo.jpg" />
     <Content Include="img\logo_cap1.jpg" />
     <Content Include="img\test.png" />

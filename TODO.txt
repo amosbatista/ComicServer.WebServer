@@ -1,0 +1,21 @@
+Ghostships TODO:
+	Pages::
+	  - ABOUT
+	  	A page about the history, about the site and about the creator.
+  	- CONTACT
+  		Pass the following contacts:
+  			- Mail
+  			- Facebook
+  			- Tumblr
+		  	...
+  	- DONATE
+		  A page explaining the donation concept and ask, showing the paypal page.
+		- LICENSE
+		  A page explaining the Creative Commons to this page.
+	
+	Translation::
+	  Set a JSON repository, where I can set all the text in the page.
+	
+	Title::
+	  Change the title.
+	  

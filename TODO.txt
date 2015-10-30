@@ -14,8 +14,10 @@ Ghostships TODO:
 		  A page explaining the Creative Commons to this page.
 	
 	Translation::
-	  Set a JSON repository, where I can set all the text in the page.
+	  Create a JSON repository, where I can set all the text in the page.
 	
 	Title::
 	  Change the title.
-	  
+	
+	Idiom button
+		Set a mouse-over effect to the button.

@@ -7,6 +7,7 @@ var DOMarrow_moveNextMap;
 var DOMarrow_movePrevMap;
 var greyBackground;
 var svgObject;
+var DIV_SgvHolder;
 
 var currentMapNumber;
 var actualMap_x;
@@ -28,8 +29,8 @@ var textRepository;
 
 
 // Constants
-var dominio = "http://localhost:3472"
-//var dominio = "http://theghostships.com"
+//var dominio = "http://localhost:3472"
+var dominio = "http://theghostships.com"
 	
 function initPage(){
 
@@ -37,11 +38,15 @@ function initPage(){
 	greyBackground = document.getElementById("background_Load_Info");
 	DOMarrow_moveNextMap = document.getElementById("arrow_moveNextMap");
 	DOMarrow_movePrevMap = document.getElementById("arrow_movePrevMap");
-	svgObject =  document.getElementById("svgRegion");
+	svgObject = document.getElementById("svgRegion");
+	DIV_SgvHolder = document.getElementById("div_svgHolder");
 	
 	// Defining the display elements list
 	DOMPageContentList.push(document.getElementById("myImage"));
 	DOMPageContentList.push(document.getElementById("div_about"));
+	DOMPageContentList.push(document.getElementById("div_License"));
+	DOMPageContentList.push(document.getElementById("div_Donate"));
+	DOMPageContentList.push(document.getElementById("div_Contact"));
 	
 	// Setting the image element to the top
 	showElementAbove(DOMPageContentList[0]);
@@ -72,7 +77,6 @@ function initPage(){
 	// Loading the episode marked as the first
 	LoadEpisode(episodeNumber);
 	
-		
 	// Loading the string repository
 	LoadStringRepository();
 }
@@ -189,6 +193,10 @@ function ChangeMapByClick(evt){
 		}
 		
 	}
+	// Detecting event to exit the SubPages tutorial
+	else if (GetAction(evt) == "ESC"){
+		ClosePageElement();
+	}
 	//In case of Context Menu, return false to do not allow to shot the menu
 	if (evt.type == "contextmenu") 
 		return false;
@@ -236,6 +244,8 @@ function GetAction(evt){
 			return "BACK";
 		if(evt.keyCode == 39)
 			return "AHEAD";
+		if(evt.keyCode == 27) // Esc button. Specific to exit the subpages
+			return "ESC";
 	}
 	
 	
@@ -500,23 +510,46 @@ function bgFadeIn(){
 function showElementAbove(element){
 	for (cont = 0; cont < DOMPageContentList.length; cont++){
 	
-		if (DOMPageContentList[cont] == element)
+		if (DOMPageContentList[cont] == element){
 			DOMPageContentList[cont].style.zIndex = 1;
-		else
+		}
+		else{
 			DOMPageContentList[cont].style.zIndex = -1;
+		}			
 	}
+	
+	// In the end of the set, aways set the windows scroll to 0, to return to the top
+	DIV_SgvHolder.scrollTop = 0;
+	document.scrollingElement.scrollTop = 0;
 }
 
 //Function that hide the element page "about page, for example", and show the image element
 function ClosePageElement(){
 	showElementAbove(DOMPageContentList[0]);
+	
+	// Set the scroll type to none, when the image return to the top.
+	DIV_SgvHolder.style.overflow = "hidden";
 }
 
-//Functions those call specific page
+//Functions those call specific pages
 function CallAboutPage(){
 	showElementAbove(DOMPageContentList[1]);
+	DIV_SgvHolder.style.overflow = "scroll";
+}
+function CallLicensePage(){
+	showElementAbove(DOMPageContentList[2]);
+	DIV_SgvHolder.style.overflow = "scroll";
 }
 
+function CallDonatePage(){
+	showElementAbove(DOMPageContentList[3]);
+	DIV_SgvHolder.style.overflow = "scroll";
+}
+
+function CallContactPage(){
+	showElementAbove(DOMPageContentList[4]);
+	DIV_SgvHolder.style.overflow = "scroll";
+}
 
 // Function that loads the string repository, to fill all text content
 function LoadStringRepository(){
@@ -532,16 +565,18 @@ function LoadStringRepository(){
 	// Requesting JSON
     jSonRequisition_stringRep.onreadystatechange = function () {
 
-        if (jSonRequisition_stringRep.readyState == 4 && jSonRequisition_stringRep.status == 200)  // readyState == 4: Request finished and function ready - jSonRequisition.status == 200: OK
+        if (jSonRequisition_stringRep.readyState == 4 && jSonRequisition_stringRep.status == 200){  // readyState == 4: Request finished and function ready - jSonRequisition.status == 200: OK
 
             // Loading JSOn to object
             textRepository = JSON.parse(jSonRequisition_stringRep.responseText);       
-			currentPage = 0;			
+			currentPage = 0;
+
+			// Setting right now the paragraphs caption
+			ChangeIdiom();			
+		}
     }
 	var urlComicsServer = dominio + "/Translation.aspx";
 	jSonRequisition_stringRep.open("GET", urlComicsServer, true);
 	jSonRequisition_stringRep.send();
-	
-	
 }
 

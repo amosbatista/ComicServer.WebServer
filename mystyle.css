@@ -2,8 +2,8 @@
 html {
 font-size: 62.5%;
 }
-main, img{
-	
+body{
+	background-color: #badeff;
 }
 header, section, footer, nav, section , main{
 	display: block; 
@@ -11,7 +11,6 @@ header, section, footer, nav, section , main{
 body{
 	margin: 0;
     padding: 1%;
-	background-color: #badeff;
 	font-size: 100%;
 }
 main{
@@ -66,17 +65,19 @@ div.fb-like{
 }
 
 div.subPage{
-	border: solid 3px blue;
-	background-color: white;
+	padding: 10%;
+	border: solid 1px grey;
+	background-color: #badeff;
 	position: absolute;
-	top: 0px;
-    left: 0px;
+	top: 1%;
+    left: 1%;
 	z-index: -1;
+	boxShadow: 5px 5px 5px #badeff;
 }
 div.svgHolder{
 	position: relative;		/*This Div keep the size of the Image element*/
 	background-color: white; /*Keeping a white background, to hide any DIV besides image.*/
-	overflow: scroll;
+	overflow: hidden;
 }
 p.labels{
 	text-align: right;
@@ -88,9 +89,16 @@ p.pageNavigation{
 	word-spacing: 30px;
 	text-align: center;
 }
-p.tutorial{
+p.tutorial, p.close_Button{
 	text-align: center;
 	font-size: 1.1EM;
+	word-spacing: 1px;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+p.close_Button{
+	margin-bottom: 3%;
+	font-size: 1.3EM;
 }
 p.quote_italic{
 	text-align: right;
@@ -104,6 +112,7 @@ p.quote{
 p.about{
 	text-align: left;
 	font-size: 1.5EM;
+	margin-bottom: 2%;
 }
 p.about_title{
 	text-align: left;

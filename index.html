@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
-<html>
-
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO_8859-9:1989" />
 		<link rel="stylesheet" type="text/css" href="mystyle.css" />
-		<link href='https://fonts.googleapis.com/css?family=Vollkorn|PT+Serif' rel='stylesheet' type='text/css'>
+		<!--<link href='https://fonts.googleapis.com/css?family=Vollkorn|PT+Serif' rel='stylesheet' type='text/css'>-->
 		<script src="pageMapping.js"></script>
 		
 		<!-- Script para permitir o acesso botão Like-->
-		<script>		    (function (d, s, id) {
+		<script>/*		    (function (d, s, id) {
 		        var js, fjs = d.getElementsByTagName(s)[0];
 		        if (d.getElementById(id)) return;
 		        js = d.createElement(s); js.id = id;
 		        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=268467563167452";
 		        fjs.parentNode.insertBefore(js, fjs);
-		    } (document, 'script', 'facebook-jssdk'));</script>
+		    } (document, 'script', 'facebook-jssdk'));*/</script>
 
         <!-- Script Google Analytics-->	
         <script>
@@ -42,6 +39,27 @@
 				<img class="imgSideBar" src="img\logo.jpg" alt="Ghostships">
 			</a>
 			<div class="fb-like" data-href="https://www.facebook.com/Ghostships-1183663534992618" data-width="150" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
+			
+			<!-- Navigation to another pages -->
+			<a href="javascript:void(0);" onClick="CallAboutPage();">
+				<p class="about_title">
+					About
+				</p>
+			</a>
+			
+			<a href="javascript:void(0);" onClick="CallAboutPage();">
+				<p class="about_title">
+					License
+				</p>
+			</a>
+			
+			<a href="javascript:void(0);" onClick="CallAboutPage();">
+				<p class="about_title">
+					Donate
+				</p>
+			</a>
+			
+			
 		</nav>
 		
 		<aside class="rightBar">
@@ -51,8 +69,8 @@
 			<img class="imgSideBar" src="img\logo_cap1.jpg" alt="Episode 1" />
 
             <!-- Script google Ad-->
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- Padrão direito, canto -->
+            <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Padrão direito, canto - ->
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-7726753895365103"
@@ -60,17 +78,143 @@
                  data-ad-format="auto"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            </script>-->
 		</aside>
 
 		<main>
-			<svg id="svgRegion" version="1.1"
-				 xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink" viewbox="0 0 800 600">
-				<rect opacity="0.0" stroke-opacity="0" id="background_Load_Info" height="110%" width="110%" y="0" x="0" stroke-linecap="null" stroke-linejoin="null" stroke-width="5" stroke="#fffcfc" fill="#776565"/>
-				<path id="arrow_moveNextMap" fill-opacity="0" transform="translate(0, 75) rotate(90 89.16999053955074,437.90002441406256) " stroke-opacity="0.25" d="m70.88499,453.90002l18.28503,-32l18.28497,32l-36.57001,0l0,0z" stroke-width="5" stroke="#000000" fill="#ff0000"/>
-				<path id="arrow_movePrevMap" fill-opacity="0" transform="translate(0, 75) rotate(-90 44.000000000000064,437.50000000000006) " stroke-opacity="0.25" d="m25.715,453.5l18.28503,-32l18.28497,32l-36.57,0l0,0z" stroke-width="5" stroke="#000000" fill="#ff0000"/>
-				<image id="myImage" xlink:href="" x="0" y="0" height="100%" width="100%" transform="translate(0, 0) scale(1)" />		
-			</svg>				
+			<div class="svgHolder">
+				<svg id="svgRegion" version="1.1"
+					 xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink" viewbox="0 0 800 600">
+					<rect opacity="0.0" stroke-opacity="0" id="background_Load_Info" height="110%" width="110%" y="0" x="0" stroke-linecap="null" stroke-linejoin="null" stroke-width="5" stroke="#fffcfc" fill="#776565"/>
+					<path id="arrow_moveNextMap" fill-opacity="0" transform="translate(0, 75) rotate(90 89.16999053955074,437.90002441406256) " stroke-opacity="0.25" d="m70.88499,453.90002l18.28503,-32l18.28497,32l-36.57001,0l0,0z" stroke-width="5" stroke="#000000" fill="#ff0000"/>
+					<path id="arrow_movePrevMap" fill-opacity="0" transform="translate(0, 75) rotate(-90 44.000000000000064,437.50000000000006) " stroke-opacity="0.25" d="m25.715,453.5l18.28503,-32l18.28497,32l-36.57,0l0,0z" stroke-width="5" stroke="#000000" fill="#ff0000"/>
+					
+					<!-- The main element of the page -->
+					<image id="myImage" xlink:href="" x="0" y="0" height="100%" width="100%" transform="translate(0, 0) scale(1)" />		
+					
+					<!-- Another "pages" (or elements) that will be called when user click in the links on the left -->
+				
+					<!-- ** About ** -->
+					<div id="div_about" class="subPage">
+					
+						<a href="javascript:void(0);" onClick="ClosePageElement();">
+							<p class="tutorial" id="lbl_ElementPage_Close">Close</p>
+						</a>
+						
+						<p class="quote_italic" id="p_about_quote">
+							"Nossa tradição conta sobre 4 naves espaciais: <br />
+							Uma, pelas quais voamos pelos céus, <br />
+							Duas, que de tão velhas, temos que destruí-las para as refazermos, <br />
+							Três, que as abandonamos, pois são perigosas demais para mantermos, <br />
+							E a quarta, que não sabemos de nada sobre elas, <br />
+							mas sabemos que estão acima de nós, nos observando." <br />
+							<p class="quote" id="p_about_quote_information">Rainha Stella XI, "Estrela da Sabedoria", 3000 A.C., 300 D.D. (Depois do Cataclisma)</p>
+						</p>
+						<p class="about_title" id="p_about_history_title">
+							Sobre a história
+						</p>
+						<p class="about" id="p_about_history">
+							That's a history of a far and dark future, 
+							where our galaxy has been stormed by centuries of war. 
+							A history about giant and abandoned ships; 
+							each one that owns your history, your travels made,
+							and your secrets that flies inside through the space. 
+							And this is a history about people, who live in these difficult times, 
+							searching these ghost ships that everyone thought they not existed anymore.
+						</p>
+						
+						<p class="about_title" id="p_about_autor_title">
+							Sobre o autor
+						</p>
+						<p class="about" id="p_about_autor">
+							That's a history of a far and dark future, 
+							where our galaxy has been stormed by centuries of war. 
+							A history about giant and abandoned ships; 
+							each one that owns your history, your travels made,
+							and your secrets that flies inside through the space. 
+							And this is a history about people, who live in these difficult times, 
+							searching these ghost ships that everyone thought they not existed anymore.
+						</p>
+						
+						<p class="about_title" id="p_about_Page_title">
+							Sobre a página
+						</p>
+						<p class="about" id="p_about_Page">
+							That's a history of a far and dark future, 
+							where our galaxy has been stormed by centuries of war. 
+							A history about giant and abandoned ships; 
+							each one that owns your history, your travels made,
+							and your secrets that flies inside through the space. 
+							And this is a history about people, who live in these difficult times, 
+							searching these ghost ships that everyone thought they not existed anymore.
+						</p>
+						
+						<a href="javascript:void(0);" onClick="ClosePageElement();">
+							<p class="tutorial" id="lbl_ElementPage_Close">
+								Close
+							</p>
+						</a>
+				
+					</div> <!-- About -->
+					
+					<!-- ** License ** -->
+					<div id="div_License" class="subPage">
+						<a href="javascript:void(0);" onClick="ClosePageElement();">
+							<p class="tutorial" id="lbl_ElementPage_Close">Close</p>
+						</a>
+						
+						<p class="about_title" id="p_license_title">
+							Licença
+						</p>
+						
+						<p class="about_title" id="p_license">
+							Esta página está dentro da licença Creative Commons 4.0, não comercial. <br />
+							Isto significa que você está autorizado a utilizar qualquer conteúdo do site, seja texto, imagem, história ou personagem
+							em qualquer trabalho que desejar realizar. <br />
+							Ao utilizar, você poderá modificar qualquer parte da minha obra para seu uso.
+							Mas não será possível utilizar nenhum conteúdo da página para propósitos comerciais, isto é, se for gerar alguma espécie de lucro.
+							E ao utilizar o conteúdo da página, você é obrigado, por lei, a indicar, junto com o seu trabalho, o nome e o link para esta página.
+							<br />
+							Fora estas obrigações legais, se você quiser, me mande uma mensagem, mostrando o seu trabalho, baseado no meu. Eu ficarei orgulhoso de ver sua arte.
+							
+						</p>
+						
+						<a href="javascript:void(0);" onClick="ClosePageElement();">
+							<p class="tutorial" id="lbl_ElementPage_Close">
+								Close
+							</p>
+						</a>
+					</div> <!-- License -->
+					
+					<!-- ** Donate ** -->
+					<div id="div_License" class="subPage">
+						<a href="javascript:void(0);" onClick="ClosePageElement();">
+							<p class="tutorial" id="lbl_ElementPage_Close">Close</p>
+						</a>
+						
+						<a href="javascript:void(0);" onClick="ClosePageElement();">
+							<p class="tutorial" id="lbl_ElementPage_Close">
+								Close
+							</p>
+						</a>
+					</div> <!-- Donate -->
+					
+					<!-- ** Contact ** -->
+					<div id="div_License" class="subPage">
+						<a href="javascript:void(0);" onClick="ClosePageElement();">
+							<p class="tutorial" id="lbl_ElementPage_Close">Close</p>
+						</a>
+						
+						<a href="javascript:void(0);" onClick="ClosePageElement();">
+							<p class="tutorial" id="lbl_ElementPage_Close">
+								Close
+							</p>
+						</a>
+					</div> <!-- Contact -->
+					
+					
+				</svg>				
+			</div>
 		</main>
 		
 		<section>

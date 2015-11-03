@@ -7,3 +7,6 @@ E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebSer
 E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\AmosBatista.ComicServer.WebServer.pdb
 E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\img\img_warning_en.jpg
 E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\img\img_warning_pt.jpg
+E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\Newtonsoft.Json.dll
+E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\Newtonsoft.Json.pdb
+E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\Newtonsoft.Json.xml

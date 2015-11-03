@@ -1,5 +1,4 @@
 /*Elements*/
-/* header, section, footer, aside, nav, main, img{ */
 html {
 font-size: 62.5%;
 }
@@ -31,6 +30,16 @@ a:link {
 a:visited {
     color: #667899;
 }
+p{
+	color:#7789aa;
+	font-family: "PT Serif", "Palatino Linotype", "Book Antiqua", Palatino, serif; 
+}
+
+/*Specific objects*/
+#myImage{
+	border: solid 2px;
+	position: relative;
+}
 
 /*Classes*/
 .leftBar, .rightBar{
@@ -55,30 +64,51 @@ div.fb-like{
 	border: solid 1px grey;
 	background-color: white;
 }
+
+div.subPage{
+	border: solid 3px blue;
+	background-color: white;
+	position: absolute;
+	top: 0px;
+    left: 0px;
+	z-index: -1;
+}
+div.svgHolder{
+	position: relative;		/*This Div keep the size of the Image element*/
+	background-color: white; /*Keeping a white background, to hide any DIV besides image.*/
+	overflow: scroll;
+}
 p.labels{
-	color:#7789aa;
 	text-align: right;
-	font-family: "PT Serif", "Palatino Linotype", "Book Antiqua", Palatino, serif; 
 	font-size: 1.2EM;
 	padding-bottom: 10%;
 }
 p.pageNavigation{
-	color:#7789aa;
-	font-family: "PT Serif", "Palatino Linotype", "Book Antiqua", Palatino, serif; 
 	font-size: 2.5EM;
 	word-spacing: 30px;
 	text-align: center;
 }
 p.tutorial{
-	color:#7789aa;
 	text-align: center;
-	font-family: "PT Serif", "Palatino Linotype", "Book Antiqua", Palatino, serif; 
 	font-size: 1.1EM;
 }
-
-
-
-/*Specific objects*/
-#myImage{
-	border: solid 2px;
+p.quote_italic{
+	text-align: right;
+	font-size: 2.0EM;
+	font-style: italic;
 }
+p.quote{
+	text-align: right;
+	font-size: 1.6EM;
+}
+p.about{
+	text-align: left;
+	font-size: 1.5EM;
+}
+p.about_title{
+	text-align: left;
+	font-size: 3.0EM;
+	font-variant: small-caps;
+}
+
+

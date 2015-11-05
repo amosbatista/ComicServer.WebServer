@@ -33,7 +33,7 @@ var textRepository;
 var dominio = "http://theghostships.com"
 	
 function initPage(){
-
+	
 	DOMLogoIdiom = document.getElementById("logo_idiom");
 	greyBackground = document.getElementById("background_Load_Info");
 	DOMarrow_moveNextMap = document.getElementById("arrow_moveNextMap");
@@ -47,6 +47,9 @@ function initPage(){
 	DOMPageContentList.push(document.getElementById("div_License"));
 	DOMPageContentList.push(document.getElementById("div_Donate"));
 	DOMPageContentList.push(document.getElementById("div_Contact"));
+	
+	// Loading the string repository
+	LoadStringRepository();
 	
 	// Setting the image element to the top
 	showElementAbove(DOMPageContentList[0]);
@@ -76,16 +79,18 @@ function initPage(){
 	
 	// Loading the episode marked as the first
 	LoadEpisode(episodeNumber);
-	
-	// Loading the string repository
-	LoadStringRepository();
 }
 // Function to create and remove events
 function AddImageEvents(){
 	// Adding events
 	svgObject.addEventListener("click", ChangeMapByClick, false);	
 	svgObject.addEventListener("contextmenu", ChangeMapByClick, false);	
-	DOMLogoIdiom.addEventListener("click", ChangeIdiom, false);
+	DOMLogoIdiom.addEventListener("click", function (){
+												ChangeIdiom();
+												
+													// Loading the episode again, in the same page
+													LoadEpisode(episodeNumber);
+											}, false);
 
 	// Flags inside the image
 	DOMarrow_moveNextMap.addEventListener("click", ChangeMapByClick, false);
@@ -445,11 +450,7 @@ function ChangeIdiom(){
 		for (contRepository = 0; contRepository < textRepository.length; contRepository++)
 			document.getElementById(textRepository[contRepository].DOMElementID).innerText = textRepository[contRepository].EnglishContent;
 	}
-		
-	// Loading the episode again, in the same page
-	LoadEpisode(episodeNumber);
-	
-	
+			
 }
 
 // Function that generate the animation process of fade-in

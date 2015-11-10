@@ -1,6 +1,13 @@
+// DOM Page-like elements 
+var DOMPageContentList = new Array();
+
 //DOM objects
-var imgObject;
+var DOMLogoIdiom;
+var DOMarrow_moveNextMap;
+var DOMarrow_movePrevMap;
+var greyBackground;
 var svgObject;
+var DIV_SgvHolder;
 
 var currentMapNumber;
 var actualMap_x;
@@ -14,27 +21,45 @@ var currentPage;
 var resquestMapTransationID = null; 
 var loadPageTransitionID = null;
 var startFadeOut = 0;
-var greyBackground;
+
 var jSonRequisition;
-var DOMLogoIdiom;
+
+// Object representing all the text content
+var textRepository;
+
 
 // Constants
-fatorZoom = 1.2;
-fatorScroll = 40;
+var dominio;
 	
 function initPage(){
-	svgObject = document.getElementById("svgRegion");
-	imgObject = document.getElementById("myImage");
+	
+	// Setting the URL of the page
+	dominio = document.origin;
+	
 	DOMLogoIdiom = document.getElementById("logo_idiom");
 	greyBackground = document.getElementById("background_Load_Info");
 	DOMarrow_moveNextMap = document.getElementById("arrow_moveNextMap");
 	DOMarrow_movePrevMap = document.getElementById("arrow_movePrevMap");
+	svgObject = document.getElementById("svgRegion");
+	DIV_SgvHolder = document.getElementById("div_svgHolder");
+	
+	// Defining the display elements list
+	DOMPageContentList.push(document.getElementById("myImage"));
+	DOMPageContentList.push(document.getElementById("div_about"));
+	DOMPageContentList.push(document.getElementById("div_License"));
+	DOMPageContentList.push(document.getElementById("div_Donate"));
+	DOMPageContentList.push(document.getElementById("div_Contact"));
+	
+	// Loading the string repository
+	LoadStringRepository();
+	
+	// Setting the image element to the top
+	showElementAbove(DOMPageContentList[0]);
 	
 	episodeNumber = GetEpisodeNumber();
 	currentIdiom = GetInitialIdiom();
 	currentPage = 0;
 	currentMapNumber = 0;
-	
 	
 	// Starting XMLHTTP
 	jSonRequisition = new XMLHttpRequest();// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -44,10 +69,11 @@ function initPage(){
 		jSonRequisition = new ActiveXObject("Microsoft.XMLHTTP");
 	}
 	
+	
 	AddImageEvents();
 	
 	// Adding the event OnLoad to the image, to detect when load is finished. On OnLoad, execute a function that flag when stop the animation
-	imgObject.addEventListener("load", function(){
+	DOMPageContentList[0].addEventListener("load", function(){
 		startFadeOut = 1;
 	}, false);	
 	
@@ -55,14 +81,18 @@ function initPage(){
 	
 	// Loading the episode marked as the first
 	LoadEpisode(episodeNumber);
-	
 }
 // Function to create and remove events
 function AddImageEvents(){
 	// Adding events
 	svgObject.addEventListener("click", ChangeMapByClick, false);	
 	svgObject.addEventListener("contextmenu", ChangeMapByClick, false);	
-	DOMLogoIdiom.addEventListener("click", ChangeIdiom, false);
+	DOMLogoIdiom.addEventListener("click", function (){
+												ChangeIdiom();
+												
+													// Loading the episode again, in the same page
+													LoadEpisode(episodeNumber);
+											}, false);
 
 	// Flags inside the image
 	DOMarrow_moveNextMap.addEventListener("click", ChangeMapByClick, false);
@@ -170,6 +200,10 @@ function ChangeMapByClick(evt){
 		}
 		
 	}
+	// Detecting event to exit the SubPages tutorial
+	else if (GetAction(evt) == "ESC"){
+		ClosePageElement();
+	}
 	//In case of Context Menu, return false to do not allow to shot the menu
 	if (evt.type == "contextmenu") 
 		return false;
@@ -217,6 +251,8 @@ function GetAction(evt){
 			return "BACK";
 		if(evt.keyCode == 39)
 			return "AHEAD";
+		if(evt.keyCode == 27) // Esc button. Specific to exit the subpages
+			return "ESC";
 	}
 	
 	
@@ -244,8 +280,7 @@ function LoadEpisode(episodeNumber){
             startFadeOut = 1;
         }
     }
-	var urlComicsServer = "http://theghostships.com/CarregarEpisodio.aspx?episodeNumber=" + episodeNumber + "&idiom=" + currentIdiom;
-	//var urlComicsServer = "http://localhost:3472/CarregarEpisodio.aspx?episodeNumber=" + episodeNumber + "&idiom=" + currentIdiom;
+	var urlComicsServer = dominio + "/CarregarEpisodio.aspx?episodeNumber=" + episodeNumber + "&idiom=" + currentIdiom;
 	jSonRequisition.open("GET", urlComicsServer, true);
 	jSonRequisition.send();
 	
@@ -362,7 +397,7 @@ function CalculateScaleTransition(parameter, destinyParameter, TransitionSpeed){
 
 // Function to configurare the Image object, to set the transaction attributes, and to move and zoom the image
 function SetImageView(x, y, scale){
-	imgObject.setAttribute("transform","translate(" + x + ", " + y + ") scale(" + scale + ")");
+	DOMPageContentList[0].setAttribute("transform","translate(" + x + ", " + y + ") scale(" + scale + ")");
 }
 /* Function to read the episode number from episode Hidden tag */
 function GetEpisodeNumber(){
@@ -376,8 +411,8 @@ function GetInitialIdiom(){
 function LoadPageToSVG(imagePath){
 
 	// Setting image path
-	imgObject.setAttribute("xlink:href", imagePath);
-	imgObject = document.getElementById("myImage");
+	DOMPageContentList[0].setAttribute("xlink:href", imagePath);
+	DOMPageContentList[0] = document.getElementById("myImage");
 	
 	// Setting the image download link
 	document.getElementById("link_openPage").setAttribute("href", imagePath);
@@ -393,6 +428,8 @@ function roundValueToDigits(value){
 
 // Function to change the idiom of the page, and also, of the image
 function ChangeIdiom(){	
+	var contRepository = 0;
+	
 	if(currentIdiom == "en"){
 		currentIdiom = "pt";
 		
@@ -400,16 +437,9 @@ function ChangeIdiom(){
 		DOMLogoIdiom.setAttribute("src","img\\idiom_en.jpg");
 		
 		// Setting captions
-		document.getElementById("lblIdiom").innerText = "Read in English:";
-		document.getElementById("lblEpisode").innerText = "Selecione um episódio:";
-		document.getElementById("link_FirstPage").innerText = "Primeiro";
-		document.getElementById("link_PrevPage").innerText = "Anterior";
-		document.getElementById("link_NextPage").innerText = "Posterior";
-		document.getElementById("link_LastPage").innerText = "Último";
-		document.getElementById("link_openPage").innerText = "Pagina_Inteira";
-		
-		document.getElementById("lblInstructions_Next").innerText = "Mover para a próxima visualização: Clique na imagem, ou pressione Direita no teclado, ou pressione a seta Direita, localizada no canto inferior esquerdo da imagem.";		
-		document.getElementById("lblInstructions_Prev").innerText = "Mover para a visualização anterior: Clique na imagem com o botão direito, ou pressione Esquerda no teclado, ou pressione a seta Esquerda, localizada no canto inferior esquerdo da imagem.";		
+		// Run all the caption repository, to set all the Paragraphs elements of the page
+		for (contRepository = 0; contRepository < textRepository.length; contRepository++)
+			document.getElementById(textRepository[contRepository].DOMElementID).innerText = textRepository[contRepository].PortugueseContent;
 	}
 	else{
 		currentIdiom = "en";
@@ -418,23 +448,11 @@ function ChangeIdiom(){
 		DOMLogoIdiom.setAttribute("src","img\\idiom_pt.jpg");
 		
 		// Setting captions
-		document.getElementById("lblIdiom").innerText = "Ler em Português:";
-		document.getElementById("lblEpisode").innerText = "Select an episode:";
-
-		document.getElementById("link_FirstPage").innerText = "First";
-		document.getElementById("link_PrevPage").innerText = "Previous";
-		document.getElementById("link_NextPage").innerText = "Next";
-		document.getElementById("link_LastPage").innerText = "Last";
-		document.getElementById("link_openPage").innerText = "FullSize";		
-		
-		document.getElementById("lblInstructions_Next").innerText = "Move to next visualization: click on the image, press Right in the keyboard or click on the right arrow, located in the left down corner of the image.";		
-		document.getElementById("lblInstructions_Prev").innerText = "Move to previous visualization: right-click on the image, press Left in the keyboard or click on the left arrow, located in the left down corner of the image.";		
+		// Run all the caption repository, to set all the Paragraphs elements of the page
+		for (contRepository = 0; contRepository < textRepository.length; contRepository++)
+			document.getElementById(textRepository[contRepository].DOMElementID).innerText = textRepository[contRepository].EnglishContent;
 	}
-		
-	// Loading the episode again, in the same page
-	LoadEpisode(episodeNumber);
-	
-	
+			
 }
 
 // Function that generate the animation process of fade-in
@@ -472,7 +490,7 @@ function bgFadeIn(){
 					AddImageEvents();
 					
 					// Passing the image to the top of screen
-					imgObject.parentNode.appendChild(imgObject);
+					DOMPageContentList[0].parentNode.appendChild(DOMPageContentList[0]);
 					DOMarrow_moveNextMap.parentNode.appendChild(DOMarrow_moveNextMap);
 					DOMarrow_movePrevMap.parentNode.appendChild(DOMarrow_movePrevMap);
 					
@@ -489,5 +507,79 @@ function bgFadeIn(){
 
 		}, 20);
 	}
+}
+
+// Function to show an specific "DIV Page" above the others elements
+function showElementAbove(element){
+	for (cont = 0; cont < DOMPageContentList.length; cont++){
+	
+		if (DOMPageContentList[cont] == element){
+			DOMPageContentList[cont].style.zIndex = 1;
+		}
+		else{
+			DOMPageContentList[cont].style.zIndex = -1;
+		}			
+	}
+	
+	// In the end of the set, aways set the windows scroll to 0, to return to the top
+	DIV_SgvHolder.scrollTop = 0;
+	document.scrollingElement.scrollTop = 0;
+}
+
+//Function that hide the element page "about page, for example", and show the image element
+function ClosePageElement(){
+	showElementAbove(DOMPageContentList[0]);
+	
+	// Set the scroll type to none, when the image return to the top.
+	DIV_SgvHolder.style.overflow = "hidden";
+}
+
+//Functions those call specific pages
+function CallAboutPage(){
+	showElementAbove(DOMPageContentList[1]);
+	DIV_SgvHolder.style.overflow = "scroll";
+}
+function CallLicensePage(){
+	showElementAbove(DOMPageContentList[2]);
+	DIV_SgvHolder.style.overflow = "scroll";
+}
+
+function CallDonatePage(){
+	showElementAbove(DOMPageContentList[3]);
+	DIV_SgvHolder.style.overflow = "scroll";
+}
+
+function CallContactPage(){
+	showElementAbove(DOMPageContentList[4]);
+	DIV_SgvHolder.style.overflow = "scroll";
+}
+
+// Function that loads the string repository, to fill all text content
+function LoadStringRepository(){
+	
+	// Starting XMLHTTP
+	jSonRequisition_stringRep = new XMLHttpRequest();// code for IE7+, Firefox, Chrome, Opera, Safari
+	
+	if (jSonRequisition_stringRep == undefined){
+		// code for IE6, IE5
+		jSonRequisition_stringRep = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	// Requesting JSON
+    jSonRequisition_stringRep.onreadystatechange = function () {
+
+        if (jSonRequisition_stringRep.readyState == 4 && jSonRequisition_stringRep.status == 200){  // readyState == 4: Request finished and function ready - jSonRequisition.status == 200: OK
+
+            // Loading JSOn to object
+            textRepository = JSON.parse(jSonRequisition_stringRep.responseText);       
+			currentPage = 0;
+
+			// Setting right now the paragraphs caption
+			ChangeIdiom();			
+		}
+    }
+	var urlComicsServer = dominio + "/Translation.aspx";
+	jSonRequisition_stringRep.open("GET", urlComicsServer, true);
+	jSonRequisition_stringRep.send();
 }
 

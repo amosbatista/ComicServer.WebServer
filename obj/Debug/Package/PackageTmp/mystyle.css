@@ -1,10 +1,9 @@
 /*Elements*/
-/* header, section, footer, aside, nav, main, img{ */
 html {
 font-size: 62.5%;
 }
-main, img{
-	
+body{
+	background-color: #badeff;
 }
 header, section, footer, nav, section , main{
 	display: block; 
@@ -12,7 +11,6 @@ header, section, footer, nav, section , main{
 body{
 	margin: 0;
     padding: 1%;
-	background-color: #badeff;
 	font-size: 100%;
 }
 main{
@@ -30,6 +28,16 @@ a:link {
 }
 a:visited {
     color: #667899;
+}
+p{
+	color:#7789aa;
+	font-family: "PT Serif", "Palatino Linotype", "Book Antiqua", Palatino, serif; 
+}
+
+/*Specific objects*/
+#myImage{
+	border: solid 2px;
+	position: relative;
 }
 
 /*Classes*/
@@ -55,30 +63,61 @@ div.fb-like{
 	border: solid 1px grey;
 	background-color: white;
 }
+
+div.subPage{
+	padding: 10%;
+	border: solid 1px grey;
+	background-color: #badeff;
+	position: absolute;
+	top: 1%;
+    left: 1%;
+	z-index: -1;
+	boxShadow: 5px 5px 5px #badeff;
+}
+div.svgHolder{
+	position: relative;		/*This Div keep the size of the Image element*/
+	background-color: white; /*Keeping a white background, to hide any DIV besides image.*/
+	overflow: hidden;
+}
 p.labels{
-	color:#7789aa;
 	text-align: right;
-	font-family: "PT Serif", "Palatino Linotype", "Book Antiqua", Palatino, serif; 
 	font-size: 1.2EM;
 	padding-bottom: 10%;
 }
 p.pageNavigation{
-	color:#7789aa;
-	font-family: "PT Serif", "Palatino Linotype", "Book Antiqua", Palatino, serif; 
 	font-size: 2.5EM;
 	word-spacing: 30px;
 	text-align: center;
 }
-p.tutorial{
-	color:#7789aa;
+p.tutorial, p.close_Button{
 	text-align: center;
-	font-family: "PT Serif", "Palatino Linotype", "Book Antiqua", Palatino, serif; 
 	font-size: 1.1EM;
+	word-spacing: 1px;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+p.close_Button{
+	margin-bottom: 3%;
+	font-size: 1.3EM;
+}
+p.quote_italic{
+	text-align: right;
+	font-size: 2.0EM;
+	font-style: italic;
+}
+p.quote{
+	text-align: right;
+	font-size: 1.6EM;
+}
+p.about{
+	text-align: left;
+	font-size: 1.5EM;
+	margin-bottom: 2%;
+}
+p.about_title{
+	text-align: left;
+	font-size: 3.0EM;
+	font-variant: small-caps;
 }
 
 
-
-/*Specific objects*/
-#myImage{
-	border: solid 2px;
-}

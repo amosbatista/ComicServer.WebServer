@@ -29,10 +29,12 @@ var textRepository;
 
 
 // Constants
-//var dominio = "http://localhost:3472"
-var dominio = "http://theghostships.com"
+var dominio;
 	
 function initPage(){
+	
+	// Setting the URL of the page
+	dominio = document.origin;
 	
 	DOMLogoIdiom = document.getElementById("logo_idiom");
 	greyBackground = document.getElementById("background_Load_Info");

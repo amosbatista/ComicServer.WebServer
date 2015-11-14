@@ -54,46 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CarregarEpisodio.aspx" />
-    <Content Include="createMapping.css" />
-    <Content Include="createMapping.html" />
-    <Content Include="createMapping.js" />
     <Content Include="Global.asax" />
-    <Content Include="img\episodes\1\en\img0.jpg" />
-    <Content Include="img\episodes\1\en\img1.jpg" />
-    <Content Include="img\episodes\1\en\img2.jpg" />
-    <Content Include="img\episodes\1\en\img3.jpg" />
-    <Content Include="img\episodes\1\en\img4.jpg" />
-    <Content Include="img\episodes\1\en\img5.jpg" />
-    <Content Include="img\episodes\1\en\img6.jpg" />
-    <Content Include="img\episodes\1\en\img7.jpg" />
-    <Content Include="img\episodes\1\en\img8.jpg" />
-    <Content Include="img\episodes\1\en\img9.jpg" />
-    <Content Include="img\episodes\1\pt\img0.jpg" />
-    <Content Include="img\episodes\1\pt\img1.jpg" />
-    <Content Include="img\episodes\1\pt\img2.jpg" />
-    <Content Include="img\episodes\1\pt\img3.jpg" />
-    <Content Include="img\episodes\1\pt\img4.jpg" />
-    <Content Include="img\episodes\1\pt\img5.jpg" />
-    <Content Include="img\episodes\1\pt\img6.jpg" />
-    <Content Include="img\episodes\1\pt\img7.jpg" />
-    <Content Include="img\episodes\1\pt\img8.jpg" />
-    <Content Include="img\episodes\1\pt\img9.jpg" />
-    <Content Include="img\idiom_en.jpg" />
-    <Content Include="img\idiom_pt.jpg" />
-    <Content Include="img\img_warning_en.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="img\img_warning_pt.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="img\logo.jpg" />
-    <Content Include="img\logo_cap1.jpg" />
-    <Content Include="img\test.png" />
-    <Content Include="img\test_small.bmp" />
-    <Content Include="img\test_small.jpg" />
-    <Content Include="index.html" />
-    <Content Include="mystyle.css" />
-    <Content Include="pageMapping.js" />
     <Content Include="SalvarEpisodio.aspx" />
     <Content Include="Translation.aspx" />
     <Content Include="Web.config">
@@ -145,11 +106,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\episodes\1\en\Thumbs.db" />
-    <None Include="img\episodes\1\pt\Thumbs.db" />
-    <None Include="img\test_page1.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

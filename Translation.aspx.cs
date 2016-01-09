@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AmosBatista.ComicsServer.Core.StringRepository;
+using AmosBatista.ComicsServer.Core.StringRepository.Context;
+using AmosBatista.ComicsServer.Core.StringRepository.Repository;
+using Newtonsoft.Json;
+
 
 // URL Example: http://localhost:3472/Translation.aspx
 
@@ -22,7 +24,7 @@ namespace AmosBatista.ComicServer.WebServer
             Response.ContentType = "application/json;";
 
             // Sending all translation to the page
-            Response.Write(textRepository.LoadTextRepository());
+            Response.Write(JsonConvert.SerializeObject(textRepository.LoadTextRepository()));
             Response.End();
 
         }

@@ -32,14 +32,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AmosBatista.ComicsServer.Core">
-      <HintPath>..\AmosBatista.ComicsServer.Core\bin\Release\AmosBatista.ComicsServer.Core.dll</HintPath>
+    <Reference Include="AmosBatista.ComicsServer.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AmosBatista.ComicsServer.Core\bin\Debug\AmosBatista.ComicsServer.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AmosBatista.MensagemSecreta.Application, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MensagemSecreta_TwitterAPI\AmosBatista.MensagemSecreta.Application\bin\Release\AmosBatista.MensagemSecreta.Application.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:\Documents and Settings\Amos\Desktop\Json80r1\Bin\Net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -53,8 +62,36 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppTwitterDM\AmosBatista.MensagemSecreta.Application.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppTwitterDM\AmosBatista.MensagemSecreta.Application.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppTwitterDM\AmosBatista.MensagemSecreta.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppTwitterDM\AmosBatista.MensagemSecreta.Core.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppTwitterDM\AmosBatista.Utilities.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppTwitterDM\AmosBatista.Utilities.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppTwitterDM\Twitterizer2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppTwitterDM\Twitterizer2.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppTwitterDM\Twitterizer2.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="CarregarEpisodio.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Messageria_EnviarDM.aspx" />
     <Content Include="SalvarEpisodio.aspx" />
     <Content Include="Translation.aspx" />
     <Content Include="Web.config">
@@ -77,6 +114,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Messageria_EnviarDM.aspx.cs">
+      <DependentUpon>Messageria_EnviarDM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Messageria_EnviarDM.aspx.designer.cs">
+      <DependentUpon>Messageria_EnviarDM.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalvarEpisodio.aspx.cs">

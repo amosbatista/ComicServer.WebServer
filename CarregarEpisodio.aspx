@@ -4,6 +4,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta content="Access-Control-Allow-Origin" />
+    
 </head>
 </html>

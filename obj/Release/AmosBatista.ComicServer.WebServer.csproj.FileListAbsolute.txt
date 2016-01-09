@@ -16,13 +16,13 @@ E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebSer
 E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\Twitterizer2.dll
 E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\AmosBatista.ComicsServer.Core.pdb
 E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\AmosBatista.MensagemSecreta.Application.pdb
-E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\Newtonsoft.Json.pdb
 E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\Newtonsoft.Json.xml
 E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\AmosBatista.Utilities.pdb
 E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\AmosBatista.MensagemSecreta.Core.pdb
 E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\Twitterizer2.pdb
 E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\Twitterizer2.xml
-E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\obj\Debug\ResolveAssemblyReference.cache
-E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\obj\Debug\AmosBatista.ComicServer.WebServer.dll
-E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\obj\Debug\AmosBatista.ComicServer.WebServer.pdb
+E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\obj\Release\ResolveAssemblyReference.cache
+E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\obj\Release\AmosBatista.ComicServer.WebServer.dll
+E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\obj\Release\AmosBatista.ComicServer.WebServer.pdb
 E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\AmosBatista.ComicServer.WebServer.pdb
+E:\Amos\Meus Projetos\Visual Studio\Comics Server\AmosBatista.ComicServer.WebServer\bin\Newtonsoft.Json.pdb

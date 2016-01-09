@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AmosBatista.ComicsServer.Core.Data.Repository;
 using AmosBatista.ComicsServer.Core;
+using Newtonsoft.Json;
 
 // URL Example: http://localhost:3472/CarregarEpisodio.aspx?episodeNumber=1&idiom=en
 namespace AmosBatista.ComicServer.WebServer
@@ -13,7 +15,7 @@ namespace AmosBatista.ComicServer.WebServer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Expires = -1;
+            /*Response.Expires = -1;
             if (Request["episodeNumber"] != null)
             {
                 ParametrosPesquisaEpisodio parametros = new ParametrosPesquisaEpisodio();
@@ -44,6 +46,32 @@ namespace AmosBatista.ComicServer.WebServer
             else
             {
                 Response.Write("Page is loaded. Please, execute using the comics Page.");
+            }
+        */
+
+            Response.Expires = -1;
+            if (Request["episodeNumber"] != null)
+            {
+
+                // Setting and configuring the parameters
+                var episodeNumber = Int16.Parse(Request["episodeNumber"]);
+                var idiom = Request["idiom"];
+
+                // Loading the episode from repository
+                EpisodeRepository epsRepository = new EpisodeRepository();
+                var episode = epsRepository.Load(episodeNumber,idiom);
+
+                // Sending the episode as a JSon format
+                Response.Clear();
+                Response.ContentType = "application/json; charset=utf-8";
+                Response.Write(JsonConvert.SerializeObject(episode));
+                Response.End();
+
+            }
+            else
+            {
+                Response.Write("Page is loaded. Please, execute using the comics Page.");
+                Response.End();
             }
         }
     }

@@ -57,22 +57,51 @@ namespace AmosBatista.ComicServer.WebServer
                 var episodeNumber = Int16.Parse(Request["episodeNumber"]);
                 var idiom = Request["idiom"];
 
-                // Loading the episode from repository
-                EpisodeRepository epsRepository = new EpisodeRepository();
-                var episode = epsRepository.Load(episodeNumber,idiom);
+                try
+                {
+                    // Loading the episode from repository
+                    EpisodeRepository epsRepository = new EpisodeRepository();
+                    var episode = epsRepository.Load(episodeNumber, idiom);
 
-                // Sending the episode as a JSon format
-                Response.Clear();
-                Response.ContentType = "application/json; charset=utf-8";
-                Response.Write(JsonConvert.SerializeObject(episode));
-                Response.End();
+                    // Sending the episode as a JSon format
+                    Response.Clear();
+                    Response.ContentType = "application/json; charset=utf-8";
 
+                    // Sending an error object
+                    if (episode == null)
+                    {
+                        SendErrorMap();
+                    }
+                    else
+                    {
+                        Response.Write(JsonConvert.SerializeObject(episode));
+                    }
+                }
+                catch (Exception exp)
+                {
+                    SendErrorMap();
+                }
+                finally
+                {
+                    Response.End();
+                }
             }
             else
             {
                 Response.Write("Page is loaded. Please, execute using the comics Page.");
                 Response.End();
             }
+        }
+
+        // Function to send a error response
+        private void SendErrorMap()
+        {
+            Response.Clear();
+            Response.ContentType = "application/json; charset=utf-8";
+
+            var errorContent_EN = "{'prologue': '','Pages': [{'Path': 'img\\\\img_warning_en.jpg','Maps': [{'X': 0,'Y': 0,'Scale': 1,'transitionType': 'normal'}]}]}";
+            Response.Write(errorContent_EN.Replace("'", "\""));
+            Response.End();
         }
     }
 }

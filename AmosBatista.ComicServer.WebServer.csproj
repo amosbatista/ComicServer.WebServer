@@ -34,7 +34,7 @@
   <ItemGroup>
     <Reference Include="AmosBatista.ComicsServer.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\AmosBatista.ComicsServer.Core\bin\Debug\AmosBatista.ComicsServer.Core.dll</HintPath>
+      <HintPath>..\AmosBatista.ComicsServer.Core\bin\Release\AmosBatista.ComicsServer.Core.dll</HintPath>
     </Reference>
     <Reference Include="AmosBatista.MensagemSecreta.Application, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -90,6 +90,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="CarregarEpisodio.aspx" />
+    <Content Include="EpisodeList.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Messageria_EnviarDM.aspx" />
     <Content Include="SalvarEpisodio.aspx" />
@@ -111,6 +112,13 @@
     </Compile>
     <Compile Include="CarregarEpisodio.aspx.designer.cs">
       <DependentUpon>CarregarEpisodio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EpisodeList.aspx.cs">
+      <DependentUpon>EpisodeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EpisodeList.aspx.designer.cs">
+      <DependentUpon>EpisodeList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
